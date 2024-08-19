@@ -1,5 +1,6 @@
 import React from "react";
 import { CardContainer, FoodInfo, FoodImage, Counting } from "./style";
+import axios from "axios";
 
 const FoodCard = ({ name, location, remaining, image }) => {
   return (
