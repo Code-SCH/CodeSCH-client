@@ -22,7 +22,7 @@ const TodayWeather = () => {
       .get("http://192.168.0.100:8080/api/weather")
       .then((response) => {
         setData(response.data);
-        console.log("Response data:", response.data); // 콘솔에 데이터 출력
+        console.log("Response data:", response.data);
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
@@ -40,6 +40,18 @@ const TodayWeather = () => {
     }
   };
 
+  if (!data) {
+    return (
+      <WeatherContainer $background="sun">
+        <InfoContainer>
+          <Icon src={sunIcon} alt="Weather Icon" />
+          <Temperature>Loading...</Temperature>
+          <Rainfall>Loading...</Rainfall>
+        </InfoContainer>
+      </WeatherContainer>
+    );
+  }
+
   return (
     <>
       <WeatherContainer $background={data ? data.PrecipitationType : "sun"}>
@@ -48,14 +60,8 @@ const TodayWeather = () => {
             src={getWeatherIcon(data ? data.PrecipitationType : "sun")}
             alt="Weather Icon"
           />
-          <Temperature>
-            30.7 °C
-            {/* {data.Temperature} */}
-          </Temperature>
-          <Rainfall>
-            강수량 0mm
-            {/* {data["1HourRainfall"]} */}
-          </Rainfall>
+          <Temperature>{data.Temperature}</Temperature>
+          <Rainfall>{data["1HourRainfall"]}</Rainfall>
         </InfoContainer>
       </WeatherContainer>
     </>

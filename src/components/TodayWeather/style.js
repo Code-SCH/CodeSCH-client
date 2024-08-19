@@ -21,7 +21,7 @@ export const WeatherContainer = styled.div`
     }
   }};
   display: flex;
-  align-items: center; /* 세로 가운데 정렬 */
+  align-items: center;
   justify-content: center;
 `;
 
@@ -33,7 +33,7 @@ export const City = styled.div`
 
 export const InfoContainer = styled.div`
   display: flex;
-  align-items: center; /* 온도와 강수량을 세로로 가운데 정렬 */
+  align-items: center;
   justify-content: center;
 `;
 
@@ -41,11 +41,11 @@ export const Temperature = styled.div`
   font-size: 36px;
   font-weight: bold;
   color: white;
-  margin-right: 20px; /* 온도와 강수량 사이에 간격 추가 */
+  margin-right: 20px;
 `;
 
 export const Icon = styled.img`
-  width: 50px; // 아이콘 크기 조절
+  width: 50px;
   height: 50px;
   margin-right: 10px;
 `;
