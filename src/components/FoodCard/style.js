@@ -50,5 +50,5 @@ export const FoodImage = styled.img`
   height: 50%;
   object-fit: contain;
   display: block;
-  margin: 0 auto;
+  margin-top: 10px;
 `;

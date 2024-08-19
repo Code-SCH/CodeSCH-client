@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import FoodCard from "../../components/FoodCard/FoodCard";
-import Food1 from "../../assets/food1.png";
-import Food2 from "../../assets/food2.png";
-import Food3 from "../../assets/food3.png";
-import Food4 from "../../assets/food4.png";
-import Food5 from "../../assets/food5.png";
+import Food1 from "../../assets/Food/food1.png";
+import Food2 from "../../assets/Food/food2.png";
+import Food3 from "../../assets/Food/food3.png";
+import Food4 from "../../assets/Food/food4.png";
+import Food5 from "../../assets/Food/food5.png";
 import { MainContainer, FoodList, Header } from "./style";
+import TodayWeather from "../../components/TodayWeather/TodayWeather";
 
 const Main = () => {
   const [foodCounts, setFoodCounts] = useState({
@@ -91,6 +92,14 @@ const Main = () => {
     };
 
     fetchCounts();
+
+    // setInterval을 이용해 일정 간격마다 데이터 가져오기
+    const intervalId = setInterval(() => {
+      fetchCounts();
+    }, 1000); // 1초마다 요청
+
+    // 컴포넌트 언마운트 시 interval 클리어
+    return () => clearInterval(intervalId);
   }, []);
 
   return (
@@ -99,6 +108,7 @@ const Main = () => {
         <span>순천향대학교</span>
         <p>천원의 아침밥 남은 인원수를 확인하세요.</p>
       </Header>
+      <TodayWeather />
       <FoodList>
         {foodData.map((food) => (
           <FoodCard

@@ -5,7 +5,6 @@ export const MainContainer = styled.div`
 `;
 
 export const FoodList = styled.div`
-  padding-top: 15vh;
   margin-top: 1vh;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
